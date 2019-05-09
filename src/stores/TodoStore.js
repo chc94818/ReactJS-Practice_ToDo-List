@@ -7,6 +7,7 @@ const _emitter = new EventEmitter();
 
 let _todos = [];
 
+// 對 store 內資料處理的相關函式
 const _createTodo = (todos, title) => {
     todos.push({
         id: todos[todos.length - 1].id + 1,
@@ -35,13 +36,16 @@ const _deleteTodo = (todos, id) => {
 };
 
 let TodoStore = {
+    // 取得 store 內的 todos
     getAll() {
         return _todos;
     },
+    // 註冊 listener 並提供註銷的 callback，在 emitter 發生變化時，觸動 view 所註冊的 callback
     addChangeListener(callback) {
         _emitter.on(CHANGE_EVENT, callback);
         return () => _emitter.removeListener(CHANGE_EVENT, callback);
     },
+    // 註冊 dispatcher，來接收傳入的 action 並處理完後，透過 emitter 來觸發 view 所提供的 callback
     dispatchToken: AppDispatcher.register((action) => {
         switch (action.type) {
             case ActionTypes.LOAD_TODOS_SUCCESS:

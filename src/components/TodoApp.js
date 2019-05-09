@@ -13,13 +13,16 @@ class TodoApp extends React.Component {
         };
     }
 
+    // did mount 階段註冊 listener
     componentDidMount() {
+        // 發出 loadTodos 請求以 ajax 獲取表單資料
         TodoActions.loadTodos();
         this._removeChangeListener = TodoStore.addChangeListener(
             () => this.setState({ todos: TodoStore.getAll() })
         );
     }
 
+    // will unmount 階段註銷 listener
     componentWillUnmount() {
         this._removeChangeListener();
     }

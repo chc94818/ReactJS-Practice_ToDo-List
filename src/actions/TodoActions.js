@@ -12,25 +12,26 @@ import AppDispatcher from '../dispatcher/AppDispatcher';
 // let myRequest = new Request("../todos.json", myInit);
 
 let TodoActions = {
-
+    // ajax 請求 json 資料的 action
     loadTodos() {
-
         fetch('todos.json')
             .then((response) => response.json())
             .then((todos) =>{
-                console.log(todos);
                 return AppDispatcher.dispatch({
                     type: ActionTypes.LOAD_TODOS_SUCCESS,
                     todos
                 })
             } );
     },
+
+    // 建立 todo 事項的 action
     createTodo(title) {
         AppDispatcher.dispatch({
             type: ActionTypes.CREATE_TODO,
             title
         });
     },
+    // 更新 todo 事項的 action
     updateTodo(id, title) {
         AppDispatcher.dispatch({
             type: ActionTypes.UPDATE_TODO,
@@ -38,6 +39,7 @@ let TodoActions = {
             title
         });
     },
+    // 切換 todo 的完成狀態 flase/true 的 action
     toggleTodo(id, completed) {
         AppDispatcher.dispatch({
             type: ActionTypes.TOGGLE_TODO,
@@ -45,6 +47,7 @@ let TodoActions = {
             completed
         });
     },
+    // 刪除 todo 事項的 action
     deleteTodo(id) {
         AppDispatcher.dispatch({
             type: ActionTypes.DELETE_TODO,
