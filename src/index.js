@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import { createStore, combineReducers, applyMiddleware} from 'redux'
 import reducers from './reducers/todos'
 import TodoApp from './components/TodoApp'
+import './App.css';
 import { Provider } from 'react-redux'
 
 
@@ -23,7 +24,9 @@ const store = createStore(
 
 ReactDOM.render(
     <Provider store={store}>
-        <TodoApp />
+        <div className="App-header">
+            <TodoApp />
+        </div>
     </Provider>,
     document.getElementById('app')
 );
