@@ -3,23 +3,20 @@ import TodoItem from './TodoItem'
 import PropTypes from "prop-types";
 import styled from 'styled-components';
 const Li = styled.li`
-            position: relative;
+            & ::before {
+                content: "";
+                color: red;
+                display: inline-block; 
+            }
+            background-color : #8C8C8C;
+            
+            margin : 0.5em;
+            padding: 0.5em;
+            border-radius : 0.5em;            
             color : white;
-            & span{
-                color: black;                
-            }
             font-weight: bold; 
-            font-size : 1em;
-            margin : 0.3em auto;
-            padding: 0.4em;
-            border-radius : 0.5em;
-            background : #8C8C8C;
+            font-size : 1em;            
             text-align: center;
-            &::before {
-              content: "";
-              color: red;
-              display: inline-block; 
-            }
         `;
 class TodoList extends React.Component {
 

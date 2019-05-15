@@ -8,12 +8,10 @@ import {connect } from 'react-redux';
 class CreateTodoFieldContainer extends React.Component {
     render() {
         return(
-            <div style={{margin:'auto'}}>
             <InputField
                 //placeholder="新增待辦清單"
                 onSubmitEditing={this.props.createTodo}
             />
-            </div>
 
         );
     }

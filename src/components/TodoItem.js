@@ -2,8 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import InputField from "./InputField";
 import styled from "styled-components";
-const Button = styled.span`
-  position: absolute;
+const Button = styled.div`
   right: 0.5em;
   width: 1.5em;
   cursor: pointer;
@@ -16,8 +15,7 @@ const Button = styled.span`
     background-color: #3b3b3b;
   }
 `;
-const CheckBox = styled.span`
-  position: absolute;
+const CheckBox = styled.div`
   box-sizing: border-box;
   left: 0.5em;
   width: 1.5em;
@@ -33,10 +31,20 @@ const CheckBox = styled.span`
     background-color: #3b3b3b;
   }
 `;
-const Text = styled.span`
-  position: absolute;
-  left: 2.5em;
+const Text = styled.div`
+  margin: 0% 5%;
+  width:80%;
+  color : #282c34;
+  text-align: left;
   text-decoration: ${props => (props.completed ? "line-through" : "none")};
+  
+`;
+const ItemBox = styled.div`
+
+    display: inline-flex;
+    flex-direction : row;
+    justify-content: space-between;
+    width: 100%;
 `;
 class TodoItem extends React.Component {
     constructor(props) {
@@ -56,7 +64,7 @@ class TodoItem extends React.Component {
         // 判斷目前模式為何，渲染不同的畫面
 
         return (
-            <>{this.state.editable ? this.renderEditMode() : this.renderViewMode()}</>
+            <ItemBox>{this.state.editable ? this.renderEditMode() : this.renderViewMode()}</ItemBox>
         );
     }
 

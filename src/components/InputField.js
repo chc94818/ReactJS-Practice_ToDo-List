@@ -8,9 +8,8 @@ const Input = styled.input`
           display: block;
           margin: auto;
           text-align: center;
-          font-size: 2.5em;
+          font-size: 2em;
           width: 100%;
-          max-width: 70vw;
           border-radius: 0.3em;
         `;
 
