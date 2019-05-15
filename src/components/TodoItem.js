@@ -3,47 +3,46 @@ import PropTypes from "prop-types";
 import InputField from "./InputField";
 import styled from "styled-components";
 const Button = styled.div`
-  right: 0.5em;
-  width: 1.5em;
-  cursor: pointer;
-  border-radius: 1.5em;
-  background: #5e5e5e;
-  padding: 0.2em;
-  font-size: 0.8em;
-  text-align: center;
-  &:hover {
-    background-color: #3b3b3b;
-  }
+    box-sizing: border-box;
+    background: #5e5e5e;
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.5em;
+    border-radius: 50%;
+    font-size: 0.75em;
+    &:hover {
+      background-color: #3b3b3b;
+    }
 `;
 const CheckBox = styled.div`
-  box-sizing: border-box;
-  left: 0.5em;
-  width: 1.5em;
-  height: 1.5em;
-  cursor: pointer;
-  border-radius: 0.2em;
-  background: #5e5e5e;
-  padding-bottom: 0.05em;
-  font-size: 0.8em;
-  text-align: center;
-  color: white;
-  &:hover {
-    background-color: #3b3b3b;
-  }
+    box-sizing: border-box;
+    background: #5e5e5e;
+    width: 1.5em;
+    height: 1.5em;
+    line-height: 1.5em;
+    border-radius: 5%;
+    font-size: 1em;
+    
+    color: white;
+    &:hover {
+      background-color: #3b3b3b;
+    }
 `;
 const Text = styled.div`
-  margin: 0% 5%;
-  width:80%;
-  color : #282c34;
-  text-align: left;
-  text-decoration: ${props => (props.completed ? "line-through" : "none")};
-  
+    margin: 0% 5%;
+    width:70%;
+    color : #282c34;
+    text-align: left;
+    text-decoration: ${props => (props.completed ? "line-through" : "none")};
+    font-weight: bold; 
+    font-size : 1em;    
 `;
 const ItemBox = styled.div`
-    display: inline-flex;
-    flex-direction : row;
-    justify-content: space-between;
-    width: 100%;
+        display: inline-flex;
+        flex-direction : row;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
 `;
 class TodoItem extends React.Component {
     constructor(props) {
@@ -81,7 +80,7 @@ class TodoItem extends React.Component {
                 <Text completed={completed} onClick={this.toggleEditMode}>
                     {title}
                 </Text>
-                <Button onClick={() => onDelete && onDelete()}>X</Button>
+                <Button onClick={() => onDelete && onDelete()}>x</Button>
             </>
         );
     }

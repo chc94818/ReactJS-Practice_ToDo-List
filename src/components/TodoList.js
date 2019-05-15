@@ -3,14 +3,13 @@ import TodoItem from './TodoItem'
 import PropTypes from "prop-types";
 import styled from 'styled-components';
 const Li = styled.li`
+            display: inline-flex;
             list-style-type: none;
             background-color : #8C8C8C;
             margin : 0.2em;
             padding: 0.5em;
-            border-radius : 0.5em;            
-            color : white;
-            font-weight: bold; 
-            font-size : 1em;            
+            border-radius : 0.5em;
+            align-items: center;
             text-align: center;
         `;
 const Ul = styled.ul`
