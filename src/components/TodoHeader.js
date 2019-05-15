@@ -16,7 +16,7 @@ class TodoHeader extends React.Component {
           padding: 0.25em 1em;
           border-radius: 3px;
         `;
-        const{title, username, todoCount} = this.props;
+        const{todoCount} = this.props;
         return(
             <HeaderDiv>
                 <h2>{todoCount>0? `${todoCount} Todos`: `Todos`}</h2>
@@ -29,14 +29,12 @@ class TodoHeader extends React.Component {
 
 // 使用 propTypes 定義參數的型別
 TodoHeader.propTypes = {
-    title: PropTypes.string.isRequired,
-    username: PropTypes.string.isRequired,
+    //title: PropTypes.string.isRequired,
+    //username: PropTypes.string.isRequired,
     todoCount: PropTypes.number.isRequired
 };
 // 使用 defaultProps 定義參數的預設值
 TodoHeader.defaultProps = {
-    title: '我的待辦清單',
-    username: 'Guest',
     todoCount: 0
 };
 export default TodoHeader;

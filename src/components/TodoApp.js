@@ -9,8 +9,9 @@ const AppDiv = styled.div`
     display: flex;
     width: 50%;    
     flex-direction: column;
+    justify-content: center;
     @media screen and (max-width:500px) {
-        width:90%
+        width:70%
     }
   
 `;

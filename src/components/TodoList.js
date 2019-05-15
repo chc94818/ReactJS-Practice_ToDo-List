@@ -3,14 +3,9 @@ import TodoItem from './TodoItem'
 import PropTypes from "prop-types";
 import styled from 'styled-components';
 const Li = styled.li`
-            & ::before {
-                content: "";
-                color: red;
-                display: inline-block; 
-            }
+            list-style-type: none;
             background-color : #8C8C8C;
-            
-            margin : 0.5em;
+            margin : 0.2em;
             padding: 0.5em;
             border-radius : 0.5em;            
             color : white;
@@ -18,6 +13,11 @@ const Li = styled.li`
             font-size : 1em;            
             text-align: center;
         `;
+const Ul = styled.ul`
+    display: flex;
+    flex-direction: column;    
+    padding: 0;
+`;
 class TodoList extends React.Component {
 
     render() {
@@ -45,12 +45,11 @@ class TodoList extends React.Component {
         ));
 
 
-        return <ul >{todoElements}</ul>;
+        return <Ul >{todoElements}</Ul>;
     }
 }
 // 設置預期的 propTypes
 TodoItem.propTypes = {
-    todos: PropTypes.arrayOf(PropTypes.object).isRequired,
     onDeleteTodo: PropTypes.func,
     onToggleTodo: PropTypes.func
 };

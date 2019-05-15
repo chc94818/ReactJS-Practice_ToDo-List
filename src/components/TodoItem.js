@@ -40,7 +40,6 @@ const Text = styled.div`
   
 `;
 const ItemBox = styled.div`
-
     display: inline-flex;
     flex-direction : row;
     justify-content: space-between;
@@ -62,7 +61,6 @@ class TodoItem extends React.Component {
 
     render() {
         // 判斷目前模式為何，渲染不同的畫面
-
         return (
             <ItemBox>{this.state.editable ? this.renderEditMode() : this.renderViewMode()}</ItemBox>
         );
@@ -96,11 +94,9 @@ class TodoItem extends React.Component {
                 style={{
                     display: "inline-block",
                     verticalAlign: "middle",
-                    width: "90%",
                     fontSize: "1em"
                 }}
                 autoFocus // autoFocus 讓使用者切換到編輯模式後，可以立即編打
-                placeholder="編輯待辦事項"
                 value={title}
                 onBlur={this.toggleEditMode} // 失焦時觸發，當使用者點擊其他地方，則切換為「瀏覽模式」
                 onKeyDown={e => {
