@@ -5,11 +5,13 @@ import styled from 'styled-components';
 // 由於 InputField 中不需要與其他元件的狀態互動，所以用不可控元件就好
 // 作為更新或新增 list 時，輸入其 title 用
 const Input = styled.input`
-            display: block;                
-            margin: auto;     
-            text-align : center;
-            font-size : 2em;
-            border-radius : 0.3em;
+          display: block;
+          margin: auto;
+          text-align: center;
+          font-size: 2.5em;
+          width: 100%;
+          max-width: 70vw;
+          border-radius: 0.3em;
         `;
 
 class InputField extends React.Component {
