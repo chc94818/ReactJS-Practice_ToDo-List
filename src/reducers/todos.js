@@ -13,10 +13,11 @@ const _findIdxById = (todos, id) => todos.findIndex((todo) => todo.id === id);
 
 const _createTodo = (todos, title) =>
     todos.push(new TodoRecord({
-        id: todos.last().id + 1,
+        id: todos.last()===undefined? 1: todos.last().id + 1,
         title,
         completed: false
     }));
+
 
 const _updateTodo = (todos, id, title) =>
     todos.setIn([ _findIdxById(todos, id), 'title' ], title);
