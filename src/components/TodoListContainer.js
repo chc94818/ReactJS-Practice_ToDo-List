@@ -3,6 +3,7 @@ import TodoList from './TodoList';
 import TodoActions from "../actions/TodoActions";
 import {connect } from 'react-redux';
 class TodoListContainer extends React.Component {
+
     render() {
         const {
             todos,
@@ -11,6 +12,7 @@ class TodoListContainer extends React.Component {
             deleteTodo
         } = this.props;
         return (
+
             <TodoList
                 todos={todos}
                 onUpdateTodo={updateTodo}

@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom'
 import { createStore, combineReducers, applyMiddleware} from 'redux'
 import reducers from './reducers/todos'
 import TodoApp from './components/TodoApp'
-import './App.css';
+import './index.css';
 import { Provider } from 'react-redux'
 
 

@@ -1,8 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 // 不可控元件 : 有自己的 state，無法預期它的結果
 // 由於 InputField 中不需要與其他元件的狀態互動，所以用不可控元件就好
 // 作為更新或新增 list 時，輸入其 title 用
+const Input = styled.input`
+            display: block;                
+            margin: auto;     
+            text-align : center;
+            font-size : 2em;
+            border-radius : 0.3em;
+        `;
+
 class InputField extends React.Component {
     constructor(props) {
         super(props);
@@ -42,26 +51,25 @@ class InputField extends React.Component {
 
 
     render() {
+
         return(
-            <div>
-                <input
-                    {...this.props}
-                    type="text"
-                    value={this.state.value}
-                    onKeyDown={this.handleKeyDown}
-                    onChange={this.handleChange}
-                />
-            </div>
+            <Input
+                {...this.props}
+                type="text"
+                value={this.state.value}
+                onKeyDown={this.handleKeyDown}
+                onChange={this.handleChange}
+            />
         );
     }
 }
 // 使用 propTypes 定義參數的型別
 InputField.propTypes = {
     onSubmitEditing: PropTypes.func,
-    placeholder: PropTypes.string.isRequired,
+    //placeholder: PropTypes.string.isRequired,
 };
 // 使用 defaultProps 定義參數的預設值
 InputField.defaultProps = {
-    placeholder: 'New Task',
+    //placeholder: 'New Task',
 };
 export default InputField;

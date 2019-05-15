@@ -1,7 +1,43 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import InputField from './InputField';
-
+import styled from 'styled-components';
+const Button = styled.span`
+            position: absolute;
+            right: 2.5%;
+            width: 1.5em;
+            cursor: pointer;
+            border-radius : 1.5em;
+            background : #5E5E5E;
+            padding: 0.2em;
+            font-size: 0.8em;
+            text-align: center;
+            &:hover{
+                background-color: #3B3B3B;
+            } 
+        `;
+const CheckBox = styled.span`
+            position: absolute;
+            box-sizing : border-box;
+            left: 2.5%;
+            width: 1.5em;
+            height: 1.5em;
+            cursor: pointer;
+            border-radius : 0.2em;
+            background : #5E5E5E;
+            padding-bottom : 0.05em;
+            font-size: 0.8em;
+            text-align: center;
+            color: white;
+            &:hover{
+                background-color: #3B3B3B;
+            } 
+        `;
+const Text = styled.span`
+            position: absolute;
+            left: 10%;
+            text-decoration : ${props=>props.completed? "line-through":"none"};
+        `;
 class TodoItem extends React.Component {
     constructor(props) {
         super(props);
@@ -18,11 +54,17 @@ class TodoItem extends React.Component {
 
     render() {
         // 判斷目前模式為何，渲染不同的畫面
-        return this.state.editable ? this.renderEditMode() : this.renderViewMode();
+
+        return(
+            <>
+                {this.state.editable ? this.renderEditMode() : this.renderViewMode()}
+            </>
+        );
     }
 
     // 列表元件狀態
     renderViewMode() {
+
         const {
             title,
             completed,
@@ -30,16 +72,17 @@ class TodoItem extends React.Component {
             onToggle
         } = this.props;
         return (
-            <div>
-                <input
-                    type="checkbox"
+            <>
+                <CheckBox
                     checked={completed}
                     onClick={() => onToggle && onToggle(!completed)}
                     onChange={() => onToggle && onToggle(!completed)}
-                />
-                <span onDoubleClick={this.toggleEditMode}>{title}</span>
-                <button onClick={()=> onDelete && onDelete()}>x</button>
-            </div>
+                >
+                    {completed? "✓":""}
+                </CheckBox>
+                <Text completed={completed} onClick={this.toggleEditMode} >{title}</Text>
+                <Button onClick={()=> onDelete && onDelete()}>X</Button>
+            </>
         );
     }
 
@@ -51,6 +94,7 @@ class TodoItem extends React.Component {
         } = this.props;
         return (
             <InputField
+                style={{display:'inline-block', verticalAlign:'middle', width:'90%', fontSize: '1em'}}
                 autoFocus                    // autoFocus 讓使用者切換到編輯模式後，可以立即編打
                 placeholder="編輯待辦事項"
                 value={title}

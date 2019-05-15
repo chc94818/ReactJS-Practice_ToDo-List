@@ -1,6 +1,26 @@
 import React from 'react';
 import TodoItem from './TodoItem'
 import PropTypes from "prop-types";
+import styled from 'styled-components';
+const Li = styled.li`
+            position: relative;
+            color : white;
+            & span{
+                color: black;                
+            }
+            font-weight: bold; 
+            font-size : 1em;
+            margin : 0.3em auto;
+            padding: 0.4em;
+            border-radius : 0.5em;
+            background : #8C8C8C;
+            text-align: center;
+            &::before {
+              content: "";
+              color: red;
+              display: inline-block; 
+            }
+        `;
 class TodoList extends React.Component {
 
     render() {
@@ -14,18 +34,21 @@ class TodoList extends React.Component {
         // 將每一筆項目轉成 li 元素，並塞入對應的待辦資料
         // PS. 務必給每筆 li 唯一 key
         const todoElements = todos.map((todo) => (
-            <li key={todo.id}>
+
+            <Li key={todo.id}>
                 <TodoItem
+                    style={{display:'inline-block'}}
                     title={todo.title}
                     completed={todo.completed}
                     onToggle={(completed) => onToggleTodo && onToggleTodo(todo.id, completed)}
                     onDelete={() => onDeleteTodo && onDeleteTodo(todo.id)}
                     onUpdate={(content) => onUpdateTodo && onUpdateTodo(todo.id, content)}
                 />
-            </li>
+            </Li>
         ));
 
-        return <ul>{todoElements}</ul>;
+
+        return <ul >{todoElements}</ul>;
     }
 }
 // 設置預期的 propTypes

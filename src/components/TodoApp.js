@@ -4,8 +4,9 @@ import CreateTodoFieldContainer from './CreateTodoFieldContainer'
 import TodoListContainer from './TodoListContainer'
 import TodoActions from '../actions/TodoActions';
 import {connect } from 'react-redux';
-
+import styled from "styled-components";
 class TodoApp extends React.Component {
+
     componentDidMount() {
         this.props.loadTodos();
     }
@@ -14,7 +15,7 @@ class TodoApp extends React.Component {
         return (
             <div>
                 <TodoHeaderContainer />
-                <CreateTodoFieldContainer />
+                <CreateTodoFieldContainer/>
                 <TodoListContainer />
             </div>
         );

@@ -12,7 +12,7 @@ class TodoHeaderContainer extends React.Component {
     render() {
         return (
             <TodoHeader
-                title="我的待辦清單"
+                title="Todos"
                 username="Jason"
                 todoCount={this.props.todos.filter((todo) => !todo.completed).size}
             />
